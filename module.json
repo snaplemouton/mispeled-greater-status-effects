@@ -1,0 +1,25 @@
+{
+  "id": "mispeled-gse",
+  "title": "Mispeled's Greater Status Effects",
+  "version": "1.0.0",
+  "manifest": "Not yet set",
+  "download": "Not yet set",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "description": "<p><strong data-start=\"243\" data-end=\"286\">Mispeled's Greater Status Effects</strong> adds a dedicated buff and debuff interface to the Token HUD for Pathfinder 1e, allowing players and GMs to quickly apply common spell and condition effects (such as Mage Armor, Shield, and Ward) with proper PF1 rules and stacking—without cluttering Foundry's default status effect list.</p>",
+  "authors": [
+    {
+      "name": "Mispeled",
+      "flags": {}
+    }
+  ],
+  "flags": {
+    "canUpload": true
+  },
+  "url": "https://github.com/snaplemouton/mispeled-greater-status-effects",
+  "esmodules": [
+    "scripts/main.js"
+  ]
+}
