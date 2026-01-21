@@ -10,6 +10,16 @@
 
 ---
 
+## Adding new buff to code
+
+1) Create the buff manually on a character token.
+2) Open console
+3) Select token with the buff and use this code in console (Changing the buff name to the name of the buff)
+```const a = canvas.tokens.controlled[0]?.actor;
+const it = a?.items?.find(i => i.type === "buff" && i.name === "Mage Armor");
+it?.toObject();```
+4) Use the information received from it (Mainly from the `change` section) to create the buff in code
+
 ---
 
 ## Compatibility

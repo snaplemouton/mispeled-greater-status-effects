@@ -27,7 +27,7 @@ export const MISPELED_BUFFS = [
 		id: "shield",
 		name: "Shield",
 		icon: `${MODULE_PATH}/icons/shield.png`,
-		// callbacks: CALLBACKS["shield"], // later
+		callbacks: CALLBACKS["shield"],
 	},
 ];
 
@@ -36,12 +36,12 @@ export const MISPELED_DEBUFFS = [
 		id: "burning",
 		name: "Burning",
 		icon: `${MODULE_PATH}/icons/burning.png`,
-		// callbacks: CALLBACKS["burning"], // later
+		callbacks: CALLBACKS["burning"],
 	},
 	{
 		id: "bane",
 		name: "Bane",
 		icon: `${MODULE_PATH}/icons/bane.png`,
-		// callbacks: CALLBACKS["bane"], // later
+		callbacks: CALLBACKS["bane"],
 	},
 ];
