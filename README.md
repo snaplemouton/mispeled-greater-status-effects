@@ -4,7 +4,9 @@
 
 ## Features
 
-- 
+- Add buff/debuff trays to token quickbar (Similar to status effects)
+- Provides a plethora of pf1e buffs and debuffs already provided by the add-on
+- Allow to add custom buff to the buff/debuff trays to make them available globally
 
 ---
 

@@ -1,0 +1,58 @@
+/* Ensure the HUD column is a positioning context */
+#token-hud .mispeled-wrapper {
+    position: relative;
+}
+
+.palette.mispeled-effects {
+    /* Visibility / stacking */
+    visibility: visible;
+    opacity: 1;
+    z-index: 100000;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px;
+
+    /* Sizing */
+    min-width: 170px;
+    max-width: 220px;
+    max-height: 280px;
+    overflow-y: auto;
+
+    /* Appearance */
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+.palette.mispeled-effects .mispeled-effect {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 4px 6px;
+    border-radius: 4px;
+
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.palette.mispeled-effects .mispeled-effect:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mispeled-effect-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.mispeled-effect-name {
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}

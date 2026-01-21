@@ -21,5 +21,8 @@
   "url": "https://github.com/snaplemouton/mispeled-greater-status-effects",
   "esmodules": [
     "scripts/main.js"
+  ],
+  "styles": [
+    "styles/styles.css"
   ]
 }
