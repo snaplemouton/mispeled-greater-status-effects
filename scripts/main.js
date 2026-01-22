@@ -1,6 +1,11 @@
 // scripts/main.js
 import { BUFF_BTN_HTML, DEBUFF_BTN_HTML } from "./constants.js";
 import { openMispeledPicker } from "./picker.js";
+import { registerMispeledSettings } from "./settings.js";
+
+Hooks.once("init", () => {
+	registerMispeledSettings();
+});
 
 Hooks.on("ready", () => {
 	Hooks.on("renderTokenHUD", (hud, html) => {

@@ -3,7 +3,7 @@ import { MODULE_ID, MODULE_PATH } from "./constants.js";
 
 export function getCallbacks() {
 	return {
-        // Buffs
+		// Buffs
 		"mage-armor": {
 			toggle: toggleMageArmor,
 			isActive: isActive,
@@ -12,7 +12,7 @@ export function getCallbacks() {
 			toggle: toggleShield,
 			isActive: isActive,
 		},
-        // Debuffs
+		// Debuffs
 		"bane": {
 			toggle: toggle,
 			isActive: isActive,
@@ -22,6 +22,16 @@ export function getCallbacks() {
 			isActive: isActive,
 		},
 	};
+}
+
+export async function isGenericEffectActive(actor, def) {
+	return isActive(actor, def);
+}
+
+export async function toggleGenericEffect(actor, def) {
+	// This uses your existing pipeline:
+	// actor buff exists -> else compendium by name -> else create minimal buff
+	return toggle(actor, def);
 }
 
 /* =========================
@@ -161,7 +171,6 @@ async function getPackIndex(pack) {
 	const key = pack.collection;
 	if (_packIndexCache.has(key)) return _packIndexCache.get(key);
 
-	// Index with fields we need
 	const idx = await pack.getIndex({ fields: ["name", "type"] });
 	_packIndexCache.set(key, idx);
 	return idx;
