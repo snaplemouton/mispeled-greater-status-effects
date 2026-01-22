@@ -8,7 +8,7 @@
     "minimum": "13",
     "verified": "13"
   },
-  "description": "<p><strong data-start=\"243\" data-end=\"286\">Mispeled's Greater Status Effects</strong> adds a dedicated buff and debuff interface to the Token HUD for Pathfinder 1e, allowing players and GMs to quickly apply common spell and condition effects (such as Mage Armor, Shield, and Ward) with proper PF1 rules and stacking—without cluttering Foundry's default status effect list.</p>",
+  "description": "<p><strong data-start=\"243\" data-end=\"286\">**Mispeled's Greater Status Effects** adds a dedicated buff and debuff interface to the Token HUD for Pathfinder 1e, allowing players and GMs to quickly apply and manage PF1 buffs and debuffs without cluttering Foundry's default status effect list.</p> <p>Instead of relying on a fixed list, this module lets you build your own buff and debuff trays by dragging items directly from actor sheets or compendiums, making those effects instantly available for all actors without needing to manually add the buff to each character.</p>",
   "authors": [
     {
       "name": "Mispeled",

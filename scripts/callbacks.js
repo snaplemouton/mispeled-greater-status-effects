@@ -1,81 +1,17 @@
 // scripts/callbacks.js
 import { MODULE_ID, MODULE_PATH } from "./constants.js";
 
-export function getCallbacks() {
-	return {
-		// Buffs
-		"mage-armor": {
-			toggle: toggleMageArmor,
-			isActive: isActive,
-		},
-		"shield": {
-			toggle: toggleShield,
-			isActive: isActive,
-		},
-		// Debuffs
-		"bane": {
-			toggle: toggle,
-			isActive: isActive,
-		},
-		"burning": {
-			toggle: toggle,
-			isActive: isActive,
-		},
-	};
-}
-
-export async function isGenericEffectActive(actor, def) {
-	return isActive(actor, def);
-}
-
-export async function toggleGenericEffect(actor, def) {
-	// This uses your existing pipeline:
-	// actor buff exists -> else compendium by name -> else create minimal buff
-	return toggle(actor, def);
-}
-
 /* =========================
-   Generic callbacks
+   Public API used by picker
    ========================= */
 
-async function isActive(actor, def) {
+export async function isGenericEffectActive(actor, def) {
 	const item = findPf1BuffByName(actor, def.name);
 	if (!item) return false;
 	return getPf1BuffActive(item);
 }
 
-async function toggle(actor, def) {
-	const item = await ensurePf1BuffExists(actor, {
-		name: def.name,
-		img: def.icon,
-	});
-
-	await togglePf1BuffItem(actor, item);
-}
-
-/* =========================
-   Specific callbacks
-   ========================= */
-
-async function toggleMageArmor(actor, def) {
-	const item = await ensurePf1BuffExists(actor, {
-		name: def.name,
-		img: def.icon,
-		changes: [
-			{
-				formula: "4",
-				operator: "add",
-				priority: 0,
-				target: "aac",
-				type: "base",
-			},
-		],
-	});
-
-	await togglePf1BuffItem(actor, item);
-}
-
-async function toggleShield(actor, def) {
+export async function toggleGenericEffect(actor, def) {
 	const item = await ensurePf1BuffExists(actor, {
 		name: def.name,
 		img: def.icon,
@@ -237,18 +173,15 @@ async function importBuffToActor(actor, buffDoc, { changes } = {}) {
 }
 
 async function ensurePf1BuffExists(actor, { name, img, changes = [] }) {
-	// 1) Already on actor
 	let existing = findPf1BuffByName(actor, name);
 	if (existing) return existing;
 
-	// 2) Found in compendiums -> import to actor (keep compendium img)
 	const compDoc = await findPf1BuffInCompendiumsByName(name);
 	if (compDoc) {
 		const imported = await importBuffToActor(actor, compDoc, { changes });
 		if (imported) return imported;
 	}
 
-	// 3) Fallback: create a minimal buff item (use your custom icon here)
 	const itemData = {
 		name: name,
 		type: "buff",

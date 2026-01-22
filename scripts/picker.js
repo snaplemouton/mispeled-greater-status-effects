@@ -3,7 +3,7 @@ import { MODULE_ID, MODULE_PATH } from "./constants.js";
 import { toggleGenericEffect } from "./callbacks.js";
 
 let _activePicker = null;
-let _activePickerType = null; // "buff" | "debuff"
+let _activePickerType = null;
 let _activeButton = null;
 let _outsideCloseHandler = null;
 let _escCloseHandler = null;

@@ -1,4 +1,3 @@
-/* Ensure the HUD column is a positioning context */
 #token-hud .mispeled-wrapper {
     position: relative;
 }
